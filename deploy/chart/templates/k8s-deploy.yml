@@ -1,0 +1,102 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-deploy
+  labels:
+    app: {{ .Release.Name }}-deploy
+  namespace: {{ .Values.deployment.namespace }}
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      project: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        project: {{ .Release.Name }}
+    spec:
+      imagePullSecrets:
+        - name: ecr-secret
+      containers:
+        - name: {{ .Release.Name }}
+          image: {{ .Values.container.image.repository }}:{{ .Values.container.image.tag }}
+          imagePullPolicy: Always
+          env: # TODO. Move later into secrets
+            - name: NUXT_PUBLIC_API_URL
+              value: {{ .Values.env.apiUrl }}
+            - name: NUXT_PUBLIC_WS_URL
+              value: {{ .Values.env.wsUrl }}
+          resources:
+            requests:
+              memory: {{ .Values.resources.minMemory}}
+              cpu: {{ .Values.resources.minCPU}}
+            limits:
+              memory: {{ .Values.resources.maxMemory}}
+              cpu: {{ .Values.resources.maxCPU}}
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-service
+  labels:
+    app: {{ .Release.Name }}
+  namespace: {{ .Values.deployment.namespace }}
+spec:
+  selector:
+    project: {{ .Release.Name }}
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
+    - name: https
+      port: 443
+      targetPort: 3000
+  type: ClusterIP
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}-ingress
+  namespace: {{ .Values.deployment.namespace }}
+spec:
+  rules:
+    - host: {{ .Values.ingress.host }}
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: {{ .Release.Name }}-service
+                port:
+                  name: http
+---
+
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ .Release.Name }}-autoscaler
+  namespace: {{ .Values.deployment.namespace }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .Release.Name }}-deploy
+  minReplicas: 1
+  maxReplicas: 1
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80

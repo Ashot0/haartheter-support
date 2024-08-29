@@ -1,0 +1,121 @@
+@media (min-width: 768px) {
+	.block-b {
+		width: 304px;
+		height: 360px;
+		background: #f5f5f5;
+		padding: 10px 10px 25px 10px;
+		&__image {
+			object-fit: cover;
+			width: 284px;
+			height: 169px;
+		}
+
+		&__wrapper {
+			padding-top: 25px;
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		&__name {
+			color: #000;
+			font-family: "Prata";
+			font-size: 25px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+		}
+		&__info {
+			margin-top: 7px;
+			display: flex;
+			gap: 15px;
+			color: #000;
+			text-align: center;
+			font-family: "Poppins";
+			font-size: 13px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			text-transform: uppercase;
+		}
+		&__btn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 12px;
+			background-color: inherit;
+			margin-top: 46px;
+			color: var(--Black, #000);
+			text-align: center;
+			font-family: "Poppins";
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			text-transform: uppercase;
+			object-fit: cover;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.block-b {
+		width: 170px;
+		height: 242px;
+		background: #f5f5f5;
+		padding: 7px 6px 17px 6px;
+		&__image {
+			object-fit: cover;
+			width: 158px;
+			height: 100px;
+		}
+
+		&__wrapper {
+			padding-top: 18px;
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		&__name {
+			color: #000;
+			font-family: "Prata";
+			font-size: 18px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+		}
+		&__info {
+			margin-top: 12px;
+			display: flex;
+			gap: 15px;
+			color: #000;
+			text-align: center;
+			font-family: "Poppins";
+			font-size: 13px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			text-transform: uppercase;
+		}
+		&__btn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 12px;
+			background-color: inherit;
+			margin-top: 24px;
+			color: var(--Black, #000);
+			text-align: center;
+			font-family: "Poppins";
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			text-transform: uppercase;
+			object-fit: cover;
+		}
+	}
+}

@@ -1,0 +1,20 @@
+deployment:
+  namespace: frontend-dev # DO NOT TOUCH
+
+container:
+  image:
+    repository: 458897176121.dkr.ecr.us-east-2.amazonaws.com/frontend/dev/haartheter-support
+    tag: ''
+
+ingress:
+  host: dev-haartheter-support.x-tribal.com
+
+env:
+  apiUrl: http://dev-backend-het-haartheater.x-tribal.com:80
+  wsUrl: http://dev-backend-het-haartheater.x-tribal.com:80"
+
+resources: # DO NOT TOUCH
+  minMemory: 50Mi
+  minCPU: 0.05
+  maxMemory: 300Mi
+  maxCPU: 0.3

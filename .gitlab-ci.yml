@@ -1,0 +1,113 @@
+variables:
+  #####################################GENERAL#############################################
+  PROJECT_TYPE: frontend
+
+  #####################################GITLAB##############################################
+  DEV_BRANCH: develop
+  GITLAB_AGENT_PATH: front/kubernetes-connection:dev-demo-agent
+  GITLAB_PROD_AGENT_PATH: front/kubernetes-connection:prod-agent
+
+  #####################################KUBER###############################################
+  HELM_CHART_PATH: $CI_PROJECT_DIR/deploy/chart
+
+  DEV_HELM_RELEASE_NAME: $CI_PROJECT_NAME-dev
+  DEV_IMAGE_TAG: dev-$CI_COMMIT_SHORT_SHA
+  DEV_NAMESPACE: $PROJECT_TYPE-dev
+
+  DEMO_HELM_RELEASE_NAME: $CI_PROJECT_NAME-demo
+  DEMO_IMAGE_TAG: demo-$CI_COMMIT_SHORT_SHA
+  DEMO_NAMESPACE: $PROJECT_TYPE-demo
+
+  #####################################AWS#################################################
+  AWS_REGISTRY: 458897176121.dkr.ecr.us-east-2.amazonaws.com
+
+  AWS_REGISTRY_DEV_PREFIX: $PROJECT_TYPE/dev
+  AWS_DEV_REPOSITORY: $AWS_REGISTRY_DEV_PREFIX/$CI_PROJECT_NAME
+
+  AWS_REGISTRY_DEMO_PREFIX: $PROJECT_TYPE/demo
+  AWS_DEMO_REPOSITORY: $AWS_REGISTRY_DEMO_PREFIX/$CI_PROJECT_NAME
+
+stages:
+  - build
+  - deploy
+
+build_develop:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+  before_script:
+    - apk add --no-cache python3 py3-pip aws-cli
+  script:
+    - docker --version
+    - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin $AWS_REGISTRY
+    - |
+      if ! aws ecr describe-repositories --repository-names $AWS_DEV_REPOSITORY; then
+        aws ecr create-repository --repository-name $AWS_DEV_REPOSITORY
+        aws ecr put-lifecycle-policy --repository-name $AWS_DEV_REPOSITORY --lifecycle-policy-text '{"rules":[{"rulePriority":10,"description":"Keep only the last 2 images","selection":{"tagStatus":"any","countType":"imageCountMoreThan","countNumber":2},"action":{"type":"expire"}}]}'
+      fi
+    - docker build -t $AWS_REGISTRY/$AWS_DEV_REPOSITORY:$DEV_IMAGE_TAG .
+    - docker push $AWS_REGISTRY/$AWS_DEV_REPOSITORY:$DEV_IMAGE_TAG
+  rules:
+    - if: $CI_COMMIT_BRANCH == $DEV_BRANCH
+
+build_stage:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+  before_script:
+    - apk add --no-cache python3 py3-pip aws-cli
+  script:
+    - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin $AWS_REGISTRY
+    - |
+      if ! aws ecr describe-repositories --repository-names $AWS_DEMO_REPOSITORY; then
+        aws ecr create-repository --repository-name $AWS_DEMO_REPOSITORY
+        aws ecr put-lifecycle-policy --repository-name $AWS_DEMO_REPOSITORY --lifecycle-policy-text '{"rules":[{"rulePriority":10,"description":"Keep only the last 3 images","selection":{"tagStatus":"any","countType":"imageCountMoreThan","countNumber":3},"action":{"type":"expire"}}]}'
+      fi
+    - docker build -t $AWS_REGISTRY/$AWS_DEMO_REPOSITORY:$DEMO_IMAGE_TAG .
+    - docker push $AWS_REGISTRY/$AWS_DEMO_REPOSITORY:$DEMO_IMAGE_TAG
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+deploy_develop:
+  stage: deploy
+  image:
+    name: dtzar/helm-kubectl:latest
+    entrypoint: [ '' ]
+  script:
+    - kubectl config use-context $GITLAB_AGENT_PATH
+    - helm upgrade --install $DEV_HELM_RELEASE_NAME $HELM_CHART_PATH -f $HELM_CHART_PATH/dev-values.yaml -n $DEV_NAMESPACE --set-string container.image.tag=$DEV_IMAGE_TAG
+  rules:
+    - if: $CI_COMMIT_BRANCH == $DEV_BRANCH
+
+deploy_stage:
+  stage: deploy
+  image:
+    name: dtzar/helm-kubectl:latest
+    entrypoint: [ '' ]
+  script:
+    - kubectl config use-context $GITLAB_AGENT_PATH
+    - helm upgrade --install $DEMO_HELM_RELEASE_NAME $HELM_CHART_PATH -f $HELM_CHART_PATH/demo-values.yaml -n $DEMO_NAMESPACE --set-string container.image.tag=$DEMO_IMAGE_TAG
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+deploy_prod:
+  stage: deploy
+  image:
+    name: dtzar/helm-kubectl:latest
+    entrypoint: [ '' ]
+  script:
+    - echo "start prod deploy"
+    - echo "need to setup gitlab agent for prod cluster"
+    - echo "end prod deploy"
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  when: manual
+

@@ -1,0 +1,27 @@
+.block-header {
+	display: flex;
+	position: absolute;
+	top: -50px;
+	min-width: 349px;
+	width: 100%;
+	// max-width: fit-content;
+
+	justify-content: space-between;
+	&__title {
+		color: #000;
+		font-family: "Poppins";
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+	}
+
+	&__select {
+		color: #000;
+		font-family: "Poppins";
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+	}
+}

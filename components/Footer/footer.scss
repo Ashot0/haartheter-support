@@ -1,0 +1,215 @@
+@media (min-width: 1708px) {
+	.footer {
+		height: 411px;
+		padding: 80px 140px 0 160px;
+		background-color: #f5f5f5;
+		position: relative;
+		font-family: "Poppins";
+		&__social-media {
+			margin-top: 24px;
+			display: flex;
+			gap: 16px;
+		}
+		&__social-media-element {
+			background-color: white;
+			border-radius: 50%;
+			display: flex;
+			width: 36px;
+			height: 36px;
+			padding: 9px;
+			justify-content: center;
+			align-items: center;
+		}
+
+		&__wrapper {
+			display: flex;
+			gap: 112px;
+			margin-bottom: 80px;
+			justify-content: space-between;
+		}
+
+		&__left {
+			width: 310px;
+			// max-height: 78px;
+			color: var(--Black-600, #605f5f);
+			font-feature-settings:
+				"liga" off,
+				"clig" off;
+			font-family: "Poppins";
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 26px;
+		}
+		&__left-text {
+			margin-top: 10px;
+		}
+		&__title {
+			&_img {
+				width: 212px;
+				height: 18px;
+			}
+
+			&_h3 {
+				cursor: pointer;
+				color: var(--Black, #000);
+				font-family: "Poppins";
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 600;
+				line-height: 22px;
+				text-transform: uppercase;
+				margin-bottom: 4px;
+			}
+		}
+
+		&__right {
+			display: flex;
+			justify-content: space-between;
+			gap: 60px;
+		}
+
+		&__links-block {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+		}
+
+		&__link {
+			cursor: pointer;
+			text-wrap: nowrap;
+			color: var(--Black, #000);
+			font-family: "Poppins";
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 22px;
+		}
+
+		&__copyright {
+			border-top: 1px solid var(--Black-300, #cbcbcb);
+			color: var(--Black, #000);
+			font-family: "Poppins";
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 22px;
+
+			display: flex;
+			justify-content: space-between;
+			padding-top: 24px;
+		}
+		&__cards {
+			display: flex;
+			gap: 8px;
+			img {
+				width: 35.94px;
+				height: 23px;
+			}
+		}
+	}
+}
+@media (max-width: 1708px) {
+	.footer {
+		height: fit-content;
+		padding: 40px 30px 0 30px;
+		background-color: #f5f5f5;
+		position: relative;
+		font-family: "Poppins";
+		&__social-media {
+			margin-top: 24px;
+			display: flex;
+			gap: 16px;
+		}
+		&__social-media-element {
+			background-color: white;
+			border-radius: 50%;
+			display: flex;
+			width: 36px;
+			height: 36px;
+			padding: 9px;
+			justify-content: center;
+			align-items: center;
+		}
+
+		&__wrapper {
+			display: flex;
+			flex-direction: column;
+			gap: 50px;
+			margin-bottom: 60px;
+			justify-content: space-between;
+		}
+
+		&__left {
+			width: 310px;
+			color: var(--Black-600, #605f5f);
+			font-feature-settings:
+				"liga" off,
+				"clig" off;
+			font-family: "Poppins";
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 26px;
+		}
+		&__left-text {
+			margin-top: 10px;
+		}
+		&__title {
+			&_img {
+				width: 212px;
+				height: 18px;
+			}
+
+			&_h3 {
+				cursor: pointer;
+				color: var(--Black, #000);
+				font-family: "Poppins";
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 600;
+				line-height: 22px;
+				text-transform: uppercase;
+				margin-bottom: 4px;
+			}
+		}
+
+		&__right {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			gap: 50px 0;
+		}
+
+		&__links-block {
+			width: 172px;
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+		}
+
+		&__link {
+			cursor: pointer;
+			text-wrap: nowrap;
+			color: var(--Black, #000);
+			font-family: "Poppins";
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 22px;
+		}
+
+		&__copyright {
+			border-top: 1px solid var(--Black-300, #cbcbcb);
+			color: var(--Black, #000);
+			font-family: "Poppins";
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 22px;
+
+			display: flex;
+			justify-content: space-between;
+			padding-top: 24px;
+		}
+		&__cards {
+			display: none;
+		}
+	}
+}

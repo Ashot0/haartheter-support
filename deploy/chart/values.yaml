@@ -1,0 +1,27 @@
+# This is a template, do not touch anything!
+
+# Replace in dev,demo-values.yaml:
+#1. $PROFILE - can be dev, demo or prod
+#2. $PROJECT_NAME - name of git lab repository
+#3. also can be changed domain, "x-tribal.com", "newtribeagency.nl"
+
+deployment:
+  namespace: frontend-dev, frontend-demo, frontend-prod # one of
+
+container:
+  image:
+    repository: 458897176121.dkr.ecr.us-east-2.amazonaws.com/frontend/$ENV/$PROJECT_NAME # Example: 458897176121.dkr.ecr.us-east-2.amazonaws.com/frontend/dev/tribal-square
+    tag: ""
+
+ingress:
+  host: $ENV-$PROJECT_NAME.x-tribal.com # Example: dev-tribal-square.x-tribal.com
+
+env:
+  apiUrl: BACKEND_URL # Example: https://dev-backend-tribal-square.x-tribal.com/api
+  wsUrl: BACKEND_WS_URL # Example: https://dev-backend-tribal-square.x-tribal.com/socket/sock-js
+
+resources:
+  minMemory: 50Mi
+  minCPU: 0.05
+  maxMemory: 300Mi
+  maxCPU: 0.5
