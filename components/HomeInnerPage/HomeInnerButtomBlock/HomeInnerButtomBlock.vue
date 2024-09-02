@@ -2,7 +2,7 @@
 	<div class="home-inner-buttom-block">
 		<div class="home-inner-buttom-block__wrapper">
 			<div class="home-inner-buttom-block__title">
-				{{ $props.assistance ? 'Need assistance?' : 'Training' }}
+				{{ assistance ? 'Need assistance?' : 'Training' }}
 			</div>
 			<div class="home-inner-buttom-block__text">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -10,7 +10,7 @@
 			</div>
 			<PopupAssist :isOpen="isPopupOpen" @close="hidePopup" />
 			<button
-				v-if="$props.assistance"
+				v-if="assistance"
 				@click="showPopup"
 				class="home-inner-buttom-block__btn"
 			>
@@ -26,7 +26,7 @@
 		</div>
 		<div class="home-inner-buttom-block__image">
 			<img
-				v-if="$props.assistance"
+				v-if="$assistance"
 				src="@/assets/images/HomeInner/assistance1.png"
 				alt=""
 				srcset=""
@@ -69,7 +69,7 @@ export default {
 			localStorage.setItem('pageObject', JSON.stringify(pages[0].children[5]));
 			router
 				.push({
-					name: 'HomeInner',
+					name: 'home-inner',
 				})
 				.then(() => {
 					router.go(0);

@@ -1,5 +1,5 @@
 <template>
-	<div class="home-inner-block">
+	<div class="home-inner-block" @click="goToPage(page)">
 		<img class="home-inner-block__img" :src="page.img" alt="" />
 		<p class="home-inner-block__name">{{ page.name }}</p>
 		<p class="home-inner-block__des">{{ page.des }}</p>
@@ -11,7 +11,7 @@
 				{{ page.videos.length }} videos
 			</p>
 		</div>
-		<button class="home-inner-block__btn" @click="goToPage(page)" type="button">
+		<button class="home-inner-block__btn" type="button">
 			VIEW <img src="@/assets/images/icons/blackArrow.png" alt="" />
 		</button>
 	</div>
@@ -27,6 +27,7 @@ export default {
 			localStorage.setItem('homeInnerObject', JSON.stringify(page));
 			router.push({
 				name: `${page.page}`,
+				query: { list: `${page.name}` },
 			});
 		};
 		return { goToPage };

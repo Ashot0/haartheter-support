@@ -6,7 +6,7 @@
 			</div>
 			<div class="empty-block__text">
 				{{
-					$props.search
+					search
 						? "Sorry, we can't find what you're looking for!"
 						: 'There is no information yet!'
 				}}

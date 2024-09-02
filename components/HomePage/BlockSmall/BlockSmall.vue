@@ -1,15 +1,17 @@
 <template>
-	<div @click="goToPage(page)" class="block-b">
-		<img class="block-b__image" :src="page.img" alt="" />
-		<div class="block-b__wrapper">
-			<p class="block-b__name">{{ page.name }}</p>
-			<div class="block-b__info">
-				<p v-if="totalArticles" class="block-b__articles">
+	<div @click="goToPage(page)" class="block-small">
+		<img class="block-small__image" :src="page.img" alt="" />
+		<div class="block-small__wrapper">
+			<p class="block-small__name">{{ page.name }}</p>
+			<div class="block-small__info">
+				<p v-if="totalArticles" class="block-small__articles">
 					{{ totalArticles }} articles
 				</p>
-				<p v-if="totalVideos" class="block-b__video">{{ totalVideos }} video</p>
+				<p v-if="totalVideos" class="block-small__video">
+					{{ totalVideos }} video
+				</p>
 			</div>
-			<button type="button" class="block-b__btn">
+			<button type="button" class="block-small__btn">
 				Read <img src="@/assets/images/icons/blackArrow.png" alt="" />
 			</button>
 		</div>
@@ -26,6 +28,7 @@ export default {
 			localStorage.setItem('pageObject', JSON.stringify(page));
 			router.push({
 				name: `${page.page}`,
+				query: { page: `${page.name}` },
 			});
 		};
 		const totalArticles = computed(() => {
@@ -46,4 +49,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped src="./block-b.scss" />
+<style lang="scss" scoped src="./block-small.scss" />

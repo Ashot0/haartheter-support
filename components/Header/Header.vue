@@ -6,7 +6,7 @@
 				<img src="../../assets/images/Global/logo.png" alt="Logo" />
 			</div>
 			<button type="button" class="header__logout">
-				<nuxt-link to="/Login">
+				<nuxt-link to="/log-in">
 					<img src="../../assets/images/icons/logout.png" alt="Logout" />
 				</nuxt-link>
 			</button>
@@ -38,7 +38,7 @@
 				<nuxt-link
 					@click="updateSearch"
 					class="header__search-btn"
-					to="/SearchPage"
+					to="/search-page"
 				>
 					SEARCH
 				</nuxt-link>
@@ -49,12 +49,13 @@
 
 <script>
 import { ref, watch, onMounted, computed } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 
 export default {
 	setup() {
 		const router = useRouter();
 		const route = ref(router.currentRoute.value);
+		const routee = useRoute();
 		const searchQuery = ref('');
 		const pageObject = ref({});
 		const homeInnerObject = ref({});
@@ -93,6 +94,7 @@ export default {
 
 		onMounted(() => {
 			initializeData();
+			console.log(routee.query.article);
 		});
 
 		watch(searchQuery, updateSearch);
@@ -107,37 +109,59 @@ export default {
 		const breadcrumbLinks = computed(() => {
 			const links = [];
 			if (
-				['HomeInner', 'ArticlesVideo', 'Article', 'Video'].includes(
+				['home-inner', 'articles-list', 'article', 'video'].includes(
 					route.value.name
 				)
 			) {
-				links.push({ to: '/HomeInner', name: pageObject.value.name });
+				links.push({ to: '/home-inner', name: pageObject.value.name });
+			} else if (routee.query.page) {
+				links.push({ to: '/home-inner', name: routee.query.page });
 			}
-			if (['ArticlesVideo', 'Article', 'Video'].includes(route.value.name)) {
-				links.push({ to: '/ArticlesVideo', name: homeInnerObject.value.name });
+
+			if (['articles-list', 'article', 'video'].includes(route.value.name)) {
+				if (routee.query.list) {
+					links.push({ to: '/articles-list', name: routee.query.list });
+				} else {
+					links.push({
+						to: '/articles-list',
+						name: homeInnerObject.value.name,
+					});
+				}
 			}
-			if (route.value.name === 'Article') {
-				links.push({ to: '/Article', name: articleObject.value.name });
+
+			if (route.value.name === 'article') {
+				if (routee.query.article) {
+					links.push({ to: '/article', name: routee.query.article });
+				} else {
+					links.push({ to: '/article', name: articleObject.value.name });
+				}
 			}
-			if (route.value.name === 'Video') {
-				links.push({ to: '/Video', name: videoObject.value.name });
+
+			if (route.value.name === 'video') {
+				if (routee.query.video) {
+					links.push({ to: '/video', name: routee.query.video });
+				} else {
+					links.push({ to: '/video', name: videoObject.value.name });
+				}
 			}
+
 			return links;
 		});
+
 		const headerTitle = computed(() => {
 			switch (route.value.name) {
 				case 'Home':
 				case 'index':
 					return 'Welcome to Support';
-				case 'HomeInner':
-					return pageObject.value.name;
-				case 'ArticlesVideo':
-					return homeInnerObject.value.name;
-				case 'Article':
-					return articleObject.value.name;
-				case 'Video':
-					return videoObject.value.name;
-				case 'SearchPage':
+				case 'home-inner':
+					return routee.query.page || pageObject.value.name;
+				case 'articles-list':
+					return routee.query.list || homeInnerObject.value.name;
+				case 'article':
+					return routee.query.article || articleObject.value.name;
+				case 'video':
+					return routee.query.video || videoObject.value.name;
+				case 'search-page':
 					return 'Search';
 				default:
 					return route.value.name;

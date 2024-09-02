@@ -49,27 +49,27 @@ export const pages = [
 		name: 'home',
 		children: [
 			{
-				page: 'HomeInner',
+				page: 'home-inner',
 				name: 'Receptie',
 				img: Image1,
 				articles: 2,
 				video: 2,
 				children: [
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Start/Close',
 						img: ImageChild1,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
 						articles: [
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Salon openen',
 								img: Image6,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
 								date: 'October 23, 2023',
 							},
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Salon sluiten',
 								img: Image2,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -78,14 +78,14 @@ export const pages = [
 						],
 						videos: [
 							{
-								page: 'Video',
+								page: 'video',
 								name: 'Voorraad beheer',
 								img: Image8,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
 								date: 'October 23, 2023',
 							},
 							{
-								page: 'Video',
+								page: 'video',
 								name: 'Salon verbruik',
 								img: Image6,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -95,35 +95,35 @@ export const pages = [
 					},
 
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Orders',
 						img: ImageChild2,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
 						articles: [],
 						videos: [
 							{
-								page: 'Video',
+								page: 'video',
 								name: 'Bestellingen uitvoeren/invoeren',
 								img: Image1,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
 								date: 'October 23, 2023',
 							},
 							{
-								page: 'Video',
+								page: 'video',
 								name: 'Afspraak inboeken',
 								img: Image9,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
 								date: 'October 23, 2023',
 							},
 							{
-								page: 'Video',
+								page: 'video',
 								name: 'Webshop bestellingen',
 								img: Image7,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
 								date: 'October 23, 2023',
 							},
 							{
-								page: 'Video',
+								page: 'video',
 								name: 'Prijzen en producten opzoeken',
 								img: Image10,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -133,20 +133,20 @@ export const pages = [
 					},
 
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Admin',
 						img: ImageChild3,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
 						articles: [
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Mail',
 								img: Image11,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
 								date: 'November 30, 2023',
 							},
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Services',
 								img: Image12,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -155,14 +155,14 @@ export const pages = [
 						],
 						videos: [
 							{
-								page: 'Video',
+								page: 'video',
 								name: 'Klant account aanmaken/beheer',
 								img: Image13,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
 								date: 'October 23, 2023',
 							},
 							{
-								page: 'Video',
+								page: 'video',
 								name: 'Roosters en uren beheer',
 								img: Image14,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -172,13 +172,13 @@ export const pages = [
 					},
 
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Communicatie',
 						img: ImageChild4,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
 						articles: [
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Contact partners/brands',
 								img: Image7,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -187,7 +187,7 @@ export const pages = [
 						],
 						videos: [
 							{
-								page: 'Video',
+								page: 'video',
 								name: 'Kassa vaardigheden',
 								img: Image15,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -198,34 +198,34 @@ export const pages = [
 				],
 			},
 			{
-				page: 'HomeInner',
+				page: 'home-inner',
 				name: 'Employees',
 				img: Image3,
 				articles: 0,
 				video: 4,
 				children: [
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Finance',
 						img: ImageChild5,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
 						articles: [
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Uitbetaling',
 								img: Image16,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
 								date: 'October 23, 2023',
 							},
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Personeelskorting',
 								img: Image17,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
 								date: 'October 23, 2023',
 							},
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Familiekorting',
 								img: Image18,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -236,7 +236,7 @@ export const pages = [
 					},
 
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Admin',
 						img: ImageChild3,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
@@ -245,34 +245,34 @@ export const pages = [
 					},
 
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Contact',
 						img: ImageChild6,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
 						articles: [
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Reiskostenvergoeding',
 								img: Image19,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
 								date: 'October 23, 2023',
 							},
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Vrij vragen',
 								img: Image20,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
 								date: 'October 23, 2023',
 							},
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Roosterwijziging',
 								img: Image14,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
 								date: 'October 23, 2023',
 							},
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Contact ICE',
 								img: Image21,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -284,28 +284,28 @@ export const pages = [
 				],
 			},
 			{
-				page: 'HomeInner',
+				page: 'home-inner',
 				name: 'Managment',
 				img: Image6,
 				articles: 2,
 				video: 2,
 				children: [
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Start/Close',
 						img: ImageChild7,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
 						articles: [],
 						videos: [
 							{
-								page: 'Video',
+								page: 'video',
 								name: 'Dag start',
 								img: Image14,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
 								date: 'October 23, 2023',
 							},
 							{
-								page: 'Video',
+								page: 'video',
 								name: 'Dag sluit',
 								img: Image22,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -315,13 +315,13 @@ export const pages = [
 					},
 
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Redo’s',
 						img: ImageChild8,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
 						articles: [
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Klachten',
 								img: Image23,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -332,13 +332,13 @@ export const pages = [
 					},
 
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Gedrag',
 						img: ImageChild9,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
 						articles: [
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Salon openen',
 								img: Image24,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -350,20 +350,20 @@ export const pages = [
 				],
 			},
 			{
-				page: 'HomeInner',
+				page: 'home-inner',
 				name: 'Houserules',
 				img: Image2,
 				articles: 1,
 				video: 2,
 				children: [
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Gedrag',
 						img: ImageChild9,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
 						articles: [
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Gedrag',
 								img: Image24,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -373,7 +373,7 @@ export const pages = [
 						videos: [],
 					},
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Uitstraling',
 						img: ImageChild10,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
@@ -381,13 +381,13 @@ export const pages = [
 						videos: [],
 					},
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Verantwoordelijkheid',
 						img: ImageChild11,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
 						articles: [
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Salon sluiten',
 								img: Image23,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -400,21 +400,21 @@ export const pages = [
 			},
 
 			{
-				page: 'HomeInner',
+				page: 'home-inner',
 				name: 'Hospitality',
 				img: Image4,
 				articles: 1,
 				video: 2,
 				children: [
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Foodtruck',
 						img: ImageChild13,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
 						articles: [],
 						videos: [
 							{
-								page: 'Video',
+								page: 'video',
 								name: 'Foodtruck',
 								img: Image25,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -423,14 +423,14 @@ export const pages = [
 						],
 					},
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Dust and dirty',
 						img: ImageChild14,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
 						articles: [],
 						videos: [
 							{
-								page: 'Video',
+								page: 'video',
 								name: 'Dust and dirty',
 								img: Image26,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -439,13 +439,13 @@ export const pages = [
 						],
 					},
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Service klant',
 						img: ImageChild15,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
 						articles: [
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Gedrag tijdens behandeling',
 								img: Image27,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -457,20 +457,20 @@ export const pages = [
 				],
 			},
 			{
-				page: 'HomeInner',
+				page: 'home-inner',
 				name: 'Training',
 				img: Image5,
 				articles: 1,
 				video: 2,
 				children: [
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Verantwoordelijkheid',
 						img: ImageChild11,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
 						articles: [
 							{
-								page: 'Article',
+								page: 'article',
 								name: 'Verantwoordelijkheid',
 								img: Image23,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -480,7 +480,7 @@ export const pages = [
 						videos: [],
 					},
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Training agenda',
 						img: ImageChild16,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
@@ -488,7 +488,7 @@ export const pages = [
 						videos: [],
 					},
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Training toegang',
 						img: ImageChild17,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
@@ -498,21 +498,21 @@ export const pages = [
 				],
 			},
 			{
-				page: 'HomeInner',
+				page: 'home-inner',
 				name: 'Sales',
 				img: Image7,
 				articles: 1,
 				video: 2,
 				children: [
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Producten sales',
 						img: ImageChild18,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
 						articles: [],
 						videos: [
 							{
-								page: 'Video',
+								page: 'video',
 								name: 'Producten',
 								img: Image7,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',
@@ -521,14 +521,14 @@ export const pages = [
 						],
 					},
 					{
-						page: 'ArticlesVideo',
+						page: 'articles-list',
 						name: 'Producten sales',
 						img: ImageChild19,
 						des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim',
 						articles: [],
 						videos: [
 							{
-								page: 'Video',
+								page: 'video',
 								name: 'Producten',
 								img: Image7,
 								des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sed do eiusmod tempor sed do eiusmod...',

@@ -96,12 +96,14 @@ export default {
 		display: flex;
 		gap: 80px;
 		position: relative;
+		justify-content: center;
 		padding-top: 60px;
 	}
 	&__articles {
 		display: flex;
 		flex-direction: column;
 		justify-content: start;
+		align-items: center;
 		flex-wrap: wrap;
 		max-width: fit-content;
 		width: 50%;
@@ -112,19 +114,23 @@ export default {
 		display: flex;
 		flex-direction: column;
 		justify-content: start;
+		align-items: center;
 		flex-wrap: wrap;
 		max-width: fit-content;
 		width: 50%;
-		max-width: 50vw;
 		gap: 20px;
 		position: relative;
 	}
 }
-@media (max-width: 768px) {
+@media (max-width: 1068px) {
 	.search-page {
 		&__wrapper {
 			flex-wrap: wrap;
 			gap: 40px;
+		}
+		&__articles,
+		&__video {
+			width: 100%;
 		}
 	}
 }

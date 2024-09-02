@@ -21,22 +21,30 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import { ref, onMounted } from 'vue';
 import HomeInnerBlock from '@/components/HomeInnerPage/HomeInnerBlock/HomeInnerBlock.vue';
 import HomeInnerButtonBlock from '../components/HomeInnerPage/HomeInnerButtomBlock/HomeInnerButtomBlock';
+import { pages } from './pages';
 const pageObject = ref('');
 const router = useRouter();
+const route = useRoute();
 onMounted(() => {
 	const data = localStorage.getItem('pageObject');
-	if (data) {
-		try {
-			pageObject.value = JSON.parse(data);
-		} catch (e) {
-			console.error('Ошибка при парсинге данных', e);
-		}
+	if (route.query.page) {
+		const queryData = route.query?.page;
+		const page = pages[0].children.find((page) => page.name === queryData);
+		pageObject.value = page;
 	} else {
-		router.push(`/`);
+		if (data) {
+			try {
+				pageObject.value = JSON.parse(data);
+			} catch (e) {
+				console.error('Ошибка при парсинге данных', e);
+			}
+		} else {
+			router.push(`/`);
+		}
 	}
 });
 </script>
@@ -51,6 +59,7 @@ onMounted(() => {
 		display: flex;
 		align-items: center;
 		gap: 20px;
+		flex-wrap: wrap;
 	}
 	&__block {
 		flex-grow: 1;
@@ -58,6 +67,8 @@ onMounted(() => {
 	}
 	&__buttom {
 		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
 		gap: 20px;
 	}
 	&__gag {

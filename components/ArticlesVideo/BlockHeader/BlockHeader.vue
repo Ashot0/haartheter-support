@@ -1,6 +1,6 @@
 <template>
 	<div class="block-header">
-		<p class="block-header__title">{{ $props.title }}</p>
+		<p class="block-header__title">{{ title }}</p>
 
 		<select class="block-header__select" name="" id="">
 			<option>Newest</option>

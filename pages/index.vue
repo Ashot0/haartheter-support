@@ -1,18 +1,18 @@
 <template>
 	<div class="home-page">
-		<BlockA :page="pages[0].children[0]" />
-		<BlockB :page="pages[0].children[3]" />
-		<BlockA :page="pages[0].children[1]" />
-		<BlockB :page="pages[0].children[4]" />
-		<BlockB :page="pages[0].children[5]" />
-		<BlockA :page="pages[0].children[2]" />
-		<BlockB :page="pages[0].children[6]" />
+		<BlockBig :page="pages[0].children[0]" />
+		<BlockSmall :page="pages[0].children[3]" />
+		<BlockBig :page="pages[0].children[1]" />
+		<BlockSmall :page="pages[0].children[4]" />
+		<BlockSmall :page="pages[0].children[5]" />
+		<BlockBig :page="pages[0].children[2]" />
+		<BlockSmall :page="pages[0].children[6]" />
 	</div>
 </template>
 
 <script setup>
-import BlockA from '@/components/HomePage/BlockA/BlockA.vue';
-import BlockB from '@/components/HomePage/BlockB/BlockB.vue';
+import BlockBig from '@/components/HomePage/BlockBig/BlockBig.vue';
+import BlockSmall from '~/components/HomePage/BlockSmall/BlockSmall.vue';
 import { pages } from './pages.ts';
 </script>
 

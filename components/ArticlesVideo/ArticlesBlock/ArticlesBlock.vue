@@ -1,15 +1,11 @@
 <template>
-	<div class="article-block">
+	<div class="article-block" @click="goToPage(article)">
 		<img class="article-block__img" :src="article.img" alt="" />
 		<p class="article-block__name">{{ article.name }}</p>
 		<p class="article-block__des">{{ article.des }}</p>
 		<div class="article-block__info">
 			<p class="article-block__date">{{ article.date }}</p>
-			<button
-				class="article-block__btn"
-				@click="goToPage(article)"
-				type="button"
-			>
+			<button class="article-block__btn" type="button">
 				READ <img src="@/assets/images/icons/blackArrow.png" alt="" />
 			</button>
 		</div>
@@ -26,6 +22,7 @@ export default {
 			localStorage.setItem('ArticleObject', JSON.stringify(page));
 			router.push({
 				name: `${page.page}`,
+				query: { article: `${page.name}` },
 			});
 		};
 		return {

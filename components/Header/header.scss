@@ -14,14 +14,15 @@
 			height: 20px;
 		}
 		&__symbol {
+			max-height: 20px;
 			position: relative;
 			object-fit: cover;
 		}
 
 		&__logout {
 			background-color: initial;
-			width: 20px;
-			height: 20px;
+			width: 40px;
+			height: 40px;
 			box-sizing: border-box;
 		}
 
@@ -40,9 +41,13 @@
 		}
 
 		&__link {
+			color: #000;
 			display: flex;
 			justify-content: center;
 			padding: 0 5px 10px 5px;
+			&:hover {
+				color: #a1a1a1;
+			}
 		}
 
 		&__bottom {
@@ -65,6 +70,10 @@
 			width: 584px;
 			height: 48px;
 			border: 1px solid #000;
+			&:hover {
+				opacity: 0.8;
+			}
+			transition: all 1s;
 		}
 
 		&__search-input {
@@ -77,6 +86,11 @@
 			font-style: normal;
 			font-weight: 400;
 			line-height: normal;
+
+			&:focus {
+				background-color: #ebebeb;
+			}
+			transition: all 1s;
 		}
 
 		&__search-btn {
@@ -95,11 +109,10 @@
 }
 @media (max-width: 1068px) {
 	.header {
-		width: 90%;
 		height: 208px;
 		border-bottom: 1px solid var(--Black-300, #cbcbcb);
 		padding: 18px 0 30px 0;
-		margin: 0 20px;
+		margin: 0 20px 20px 20px;
 		&__top {
 			display: flex;
 			justify-content: space-between;
@@ -109,14 +122,15 @@
 			width: 20px;
 			height: 20px;
 		}
-		&__sumbol {
+		&__symbol {
 			object-fit: cover;
-			max-width: 14px;
+			width: 14px;
 			min-height: 14px;
 			margin: 4px 0px 0 10px;
 		}
 
 		&__link {
+			color: #000;
 			display: flex;
 			padding: 0 5px 10px 5px;
 			justify-content: center;
@@ -126,8 +140,8 @@
 			top: 50px;
 			position: relative;
 			background-color: initial;
-			width: 20px;
-			height: 20px;
+			width: 40px;
+			height: 40px;
 			box-sizing: border-box;
 		}
 

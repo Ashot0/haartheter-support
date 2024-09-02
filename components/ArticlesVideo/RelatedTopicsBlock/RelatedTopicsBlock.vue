@@ -1,23 +1,24 @@
 <template>
 	<div
+		class="related-topics-block"
 		:class="
-			$props.item.page === 'Article'
-				? 'related-topics-block related-topics-block__article'
-				: 'related-topics-block related-topics-block__video'
+			item.page === 'article'
+				? 'related-topics-block__article'
+				: 'related-topics-block__video'
 		"
 	>
 		<div class="related-topics-block__image">
-			<img :src="$props.item.img" alt="" />
+			<img :src="item.img" alt="" />
 		</div>
 		<div class="related-topics-block__wrapper">
-			<h6 class="related-topics-block__title">{{ $props.item.name }}</h6>
-			<p class="related-topics-block__des">{{ $props.item.des }}</p>
+			<h6 class="related-topics-block__title">{{ item.name }}</h6>
+			<p class="related-topics-block__des">{{ item.des }}</p>
 			<button
 				class="related-topics-block__btn"
 				@click="goToPage()"
 				type="button"
 			>
-				{{ $props.item.page === 'Article' ? 'READ' : 'WATCH' }}
+				{{ item.page === 'article' ? 'READ' : 'WATCH' }}
 				<img src="@/assets/images/icons/blackArrow.png" alt="" srcset="" />
 			</button>
 		</div>
@@ -37,7 +38,7 @@ export default {
 		const router = useRouter();
 		const goToPage = () => {
 			console.log(props.item);
-			if (props.item.page === 'Article') {
+			if (props.item.page === 'article') {
 				localStorage.setItem('ArticleObject', JSON.stringify(props.item));
 				router.push({
 					name: `${props.item.page}`,

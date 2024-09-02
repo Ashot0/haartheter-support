@@ -28,9 +28,9 @@
 		<div class="video-block__related-topics-block">
 			<h4 class="video-block__related-topics-title">Related Topics</h4>
 			<div class="video-block__related-topics-wrapper">
-				<RelatedTopicsBlock :item="$props.video" />
-				<RelatedTopicsBlock :item="$props.video" />
-				<RelatedTopicsBlock :item="$props.video" />
+				<RelatedTopicsBlock :item="video" />
+				<RelatedTopicsBlock :item="video" />
+				<RelatedTopicsBlock :item="video" />
 			</div>
 		</div>
 	</div>

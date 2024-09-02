@@ -1,13 +1,13 @@
 <template>
-	<div @click="goToPage(page)" class="block-a">
-		<img class="block-a__image" :src="page.img" alt="" />
-		<div class="block-a__wrapper">
-			<p class="block-a__name">{{ page.name }}</p>
-			<p v-if="totalArticles" class="block-a__articles">
+	<div @click="goToPage(page)" class="block-big">
+		<img class="block-big__image" :src="page.img" alt="" />
+		<div class="block-big__wrapper">
+			<p class="block-big__name">{{ page.name }}</p>
+			<p v-if="totalArticles" class="block-big__articles">
 				{{ totalArticles }} articles
 			</p>
-			<p v-if="totalVideos" class="block-a__video">{{ totalVideos }} video</p>
-			<button type="button" class="block-a__btn">
+			<p v-if="totalVideos" class="block-big__video">{{ totalVideos }} video</p>
+			<button type="button" class="block-big__btn">
 				<img src="@/assets/images/icons/Arrow.png" alt="" />
 			</button>
 		</div>
@@ -25,6 +25,7 @@ export default {
 			localStorage.setItem('pageObject', JSON.stringify(page));
 			router.push({
 				name: `${page.page}`,
+				query: { page: `${page.name}` },
 			});
 		};
 
@@ -50,4 +51,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped src="./block-a.scss" />
+<style lang="scss" scoped src="./block-big.scss" />

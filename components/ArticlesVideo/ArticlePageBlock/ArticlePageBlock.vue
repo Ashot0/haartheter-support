@@ -64,9 +64,9 @@
 		<div class="article-block__related-topics-block">
 			<h4 class="article-block__related-topics-title">Related Topics</h4>
 			<div class="article-block__related-topics-wrapper">
-				<RelatedTopicsBlock :item="$props.article" />
-				<RelatedTopicsBlock :item="$props.article" />
-				<RelatedTopicsBlock :item="$props.article" />
+				<RelatedTopicsBlock :item="article" />
+				<RelatedTopicsBlock :item="article" />
+				<RelatedTopicsBlock :item="article" />
 			</div>
 		</div>
 	</div>
