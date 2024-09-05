@@ -1,12 +1,13 @@
 <template>
-	<div class="video-block" @click="goToPage(video)">
-		<img class="video-block__img" :src="video.img" alt="" />
+	<div class="video-block">
+		<img class="video-block__img" :src="video.img" alt="Video" />
 		<p class="video-block__name">{{ video.name }}</p>
 		<p class="video-block__des">{{ video.des }}</p>
 		<div class="video-block__info">
 			<p class="video-block__date">{{ video.date }}</p>
-			<button class="video-block__btn" type="button">
-				Watch <img src="@/assets/images/icons/blackArrow.png" alt="" />
+			<button @click="goToPage(video)" class="video-block__btn" type="button">
+				Watch
+				<img src="@/assets/images/icons/blackArrow.png" alt="Video block" />
 			</button>
 		</div>
 	</div>

@@ -1,144 +1,95 @@
-@media (min-width: 768px) {
-	.block-big {
-		cursor: pointer;
+.block-big {
+	cursor: pointer;
+	position: relative;
+	&__image {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+
+	&__wrapper {
+		background-color: rgba(0, 0, 0, 0.6);
+		top: 0;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		display: flex;
+		@media (min-width: 768px) {
+			padding-top: 149px;
+			padding-bottom: 27px;
+		}
+		@media (max-width: 768px) {
+			padding-top: 70px;
+			padding-bottom: 17px;
+		}
+	}
+
+	&__name {
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%);
+		color: #fff;
+		font-family: "Prata";
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		@media (min-width: 768px) {
+			font-size: 45px;
+		}
+		@media (max-width: 768px) {
+			font-size: 30px;
+		}
+	}
+
+	&__articles,
+	&__video {
+		color: #fff;
+		text-align: center;
+		font-family: "Poppins";
+		font-size: 13px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-transform: uppercase;
+		align-self: end;
+		@media (min-width: 768px) {
+			margin-left: 30px;
+		}
+		@media (max-width: 768px) {
+			margin-left: 20px;
+		}
+	}
+
+	&__video {
+		@media (max-width: 768px) {
+			margin-left: 10px;
+		}
+	}
+
+	&__btn {
+		background-color: initial;
+		position: absolute;
+		@media (min-width: 768px) {
+			right: 30.5px;
+		}
+		@media (max-width: 768px) {
+			right: 20px;
+		}
+		align-self: end;
+	}
+
+	@media (min-width: 768px) {
 		width: 628px;
 		height: 360px;
-		position: relative;
-		&__image {
-			object-fit: cover;
-			width: 100%;
-			height: 100%;
-		}
-		&__wrapper {
-			background-color: rgba(0, 0, 0, 0.6);
-			padding-top: 149px;
-			top: 0;
-			height: 100%;
-			width: 100%;
-			position: absolute;
-			padding-bottom: 27px;
-			display: flex;
-		}
-		&__name {
-			position: absolute;
-			left: 50%;
-			transform: translate(-50%);
-			color: #fff;
-			font-family: "Prata";
-			font-size: 45px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: normal;
-		}
-
-		&__articles {
-			margin-left: 30px;
-			color: #fff;
-			text-align: center;
-			font-family: "Poppins";
-			font-size: 13px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: normal;
-			text-transform: uppercase;
-			align-self: end;
-		}
-
-		&__video {
-			margin-left: 15px;
-			color: #fff;
-			text-align: center;
-			font-family: "Poppins";
-			font-size: 13px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: normal;
-			text-transform: uppercase;
-			align-self: end;
-			align-self: end;
-		}
-
-		&__btn {
-			background-color: initial;
-			position: absolute;
-			right: 30.5px;
-			align-self: end;
-		}
-		&:hover {
-			opacity: 0.8;
-		}
-		transition: all 1s;
 	}
-}
 
-@media (max-width: 768px) {
-	.block-big {
-		cursor: pointer;
+	@media (max-width: 768px) {
 		width: 353px;
 		height: 202px;
-		position: relative;
-		&__image {
-			object-fit: cover;
-			width: 100%;
-			height: 100%;
-		}
-		&__wrapper {
-			background-color: rgba(0, 0, 0, 0.6);
-			padding-top: 70px;
-			top: 0;
-			height: 100%;
-			width: 100%;
-			position: absolute;
-			padding-bottom: 17px;
-			display: flex;
-		}
-		&__name {
-			position: absolute;
-			left: 50%;
-			transform: translate(-50%);
-			color: #fff;
-			font-family: "Prata";
-			font-size: 30px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: normal;
-		}
+	}
 
-		&__articles {
-			margin-left: 20px;
-			color: #fff;
-			text-align: center;
-			font-family: "Poppins";
-			font-size: 13px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: normal;
-			text-transform: uppercase;
-			align-self: end;
-		}
-
-		&__video {
-			margin-left: 10px;
-			color: #fff;
-			text-align: center;
-			font-family: "Poppins";
-			font-size: 13px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: normal;
-			text-transform: uppercase;
-			align-self: end;
-		}
-
-		&__btn {
-			background-color: initial;
-			position: absolute;
-			right: 20px;
-			align-self: end;
-		}
-		&:hover {
-			opacity: 0.8;
-		}
-		transition: all 1s;
+	transition: all 1s;
+	&:hover {
+		opacity: 0.8;
 	}
 }

@@ -26,7 +26,7 @@
 		</div>
 		<div class="home-inner-buttom-block__image">
 			<img
-				v-if="$assistance"
+				v-if="assistance"
 				src="@/assets/images/HomeInner/assistance1.png"
 				alt=""
 				srcset=""

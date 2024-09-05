@@ -18,7 +18,7 @@
 					<img
 						class="header__symbol"
 						src="@/assets/images/icons/pseudo.png"
-						alt=""
+						alt="symbol"
 					/>
 					{{ link.name }}
 				</nuxt-link>
@@ -94,7 +94,6 @@ export default {
 
 		onMounted(() => {
 			initializeData();
-			console.log(routee.query.article);
 		});
 
 		watch(searchQuery, updateSearch);
@@ -130,18 +129,18 @@ export default {
 			}
 
 			if (route.value.name === 'article') {
-				if (routee.query.article) {
-					links.push({ to: '/article', name: routee.query.article });
-				} else {
+				if (!routee.query.article) {
 					links.push({ to: '/article', name: articleObject.value.name });
+				} else {
+					links.push({ to: '/article', name: routee.query.article });
 				}
 			}
 
 			if (route.value.name === 'video') {
-				if (routee.query.video) {
-					links.push({ to: '/video', name: routee.query.video });
-				} else {
+				if (!routee.query.video) {
 					links.push({ to: '/video', name: videoObject.value.name });
+				} else {
+					links.push({ to: '/video', name: routee.query.video });
 				}
 			}
 

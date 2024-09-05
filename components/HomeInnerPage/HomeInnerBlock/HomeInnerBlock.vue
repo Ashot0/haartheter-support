@@ -1,5 +1,5 @@
 <template>
-	<div class="home-inner-block" @click="goToPage(page)">
+	<div class="home-inner-block">
 		<img class="home-inner-block__img" :src="page.img" alt="" />
 		<p class="home-inner-block__name">{{ page.name }}</p>
 		<p class="home-inner-block__des">{{ page.des }}</p>
@@ -11,7 +11,7 @@
 				{{ page.videos.length }} videos
 			</p>
 		</div>
-		<button class="home-inner-block__btn" type="button">
+		<button @click="goToPage(page)" class="home-inner-block__btn" type="button">
 			VIEW <img src="@/assets/images/icons/blackArrow.png" alt="" />
 		</button>
 	</div>

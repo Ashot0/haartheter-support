@@ -57,7 +57,7 @@ onMounted(() => {
 	gap: 100px;
 	&__top {
 		display: flex;
-		align-items: center;
+		align-items: stretch;
 		gap: 20px;
 		flex-wrap: wrap;
 	}

@@ -8,7 +8,7 @@
 		"
 	>
 		<div class="related-topics-block__image">
-			<img :src="item.img" alt="" />
+			<img :src="item.img" alt="Topic" />
 		</div>
 		<div class="related-topics-block__wrapper">
 			<h6 class="related-topics-block__title">{{ item.name }}</h6>
@@ -19,7 +19,7 @@
 				type="button"
 			>
 				{{ item.page === 'article' ? 'READ' : 'WATCH' }}
-				<img src="@/assets/images/icons/blackArrow.png" alt="" srcset="" />
+				<img src="@/assets/images/icons/blackArrow.png" alt="Video" srcset="" />
 			</button>
 		</div>
 	</div>
@@ -37,7 +37,6 @@ export default {
 	setup(props) {
 		const router = useRouter();
 		const goToPage = () => {
-			console.log(props.item);
 			if (props.item.page === 'article') {
 				localStorage.setItem('ArticleObject', JSON.stringify(props.item));
 				router.push({

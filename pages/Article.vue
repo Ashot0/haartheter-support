@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<ArticlePageBlock :article="ArticleObject" />
+		<ArticlePageBlock v-if="ArticleObject" :article="ArticleObject" />
 	</div>
 </template>
 
@@ -14,23 +14,29 @@ const router = useRouter();
 const route = useRoute();
 onMounted(() => {
 	const data = localStorage.getItem('ArticleObject');
-	if (route.query?.article) {
-		const queryData = route.query?.article;
+	if (data) {
+		try {
+			ArticleObject.value = JSON.parse(data);
+		} catch (e) {
+			console.error('Ошибка при парсинге данных', e);
+			router.push(`/`);
+		}
+	} else if (route.query.article) {
+		const queryData = route.query.article;
 		const page = pages[0].children
 			.flatMap((pages) => pages.children)
-			.flatMap((pages) => pages.articles)
+			.flatMap((items) => items.articles)
 			.find((item) => item.name === queryData);
 		ArticleObject.value = page;
-	} else {
-		if (data) {
-			try {
-				ArticleObject.value = JSON.parse(data);
-			} catch (e) {
-				console.error('Ошибка при парсинге данных', e);
-			}
+		localStorage.setItem('ArticleObject', JSON.stringify(page));
+		if (page) {
+			ArticleObject.value = page;
+			localStorage.setItem('ArticleObject', JSON.stringify(page));
 		} else {
 			router.push(`/`);
 		}
+	} else {
+		router.push(`/`);
 	}
 });
 </script>

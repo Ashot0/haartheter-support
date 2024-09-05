@@ -2,7 +2,7 @@
 	<div class="empty-block">
 		<div class="empty-block__wrapper">
 			<div class="empty-block__img">
-				<img src="@/assets/images/ArticlesVideo/inbox.png" alt="" />
+				<img src="@/assets/images/ArticlesVideo/inbox.png" alt="Empty" />
 			</div>
 			<div class="empty-block__text">
 				{{

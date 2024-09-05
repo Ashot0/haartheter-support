@@ -17,37 +17,58 @@
 			<div class="video-block__info-wrapper">
 				<div>
 					<h4 class="video-block__contact-name">JAke (assistant)</h4>
-					<p class="video-block__contact-num">8654783493834</p>
+					<a href="tel:8654783493834" class="video-block__contact-num"
+						>8654783493834</a
+					>
 				</div>
 				<div>
 					<h4 class="video-block__contact-name">JULIA (Manager)</h4>
-					<p class="video-block__contact-num">5798537598348</p>
+					<a href="tel:5798537598348" class="video-block__contact-num"
+						>5798537598348</a
+					>
 				</div>
 			</div>
 		</div>
-		<div class="video-block__related-topics-block">
+		<div v-if="videoItem" class="video-block__related-topics-block">
 			<h4 class="video-block__related-topics-title">Related Topics</h4>
 			<div class="video-block__related-topics-wrapper">
-				<RelatedTopicsBlock :item="video" />
-				<RelatedTopicsBlock :item="video" />
-				<RelatedTopicsBlock :item="video" />
+				<RelatedTopicsBlock :item="videoItem" />
+				<RelatedTopicsBlock :item="videoItem" />
+				<RelatedTopicsBlock :item="videoItem" />
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import RelatedTopicsBlock from '@/components/ArticlesVideo/RelatedTopicsBlock/RelatedTopicsBlock';
+
 export default {
 	components: { RelatedTopicsBlock },
 	props: {
 		video: {
-			type: Object,
+			type: [Object, String],
 			default: () => ({}),
 		},
 	},
-	setup(props) {},
+	setup(props) {
+		const videoItem = ref(null);
+		onMounted(() => {
+			if (typeof props.video === 'string') {
+				try {
+					videoItem.value = JSON.parse(props.video);
+				} catch (error) {
+					console.error('Ошибка парсинга video:', error);
+				}
+			} else {
+				videoItem.value = props.video;
+			}
+		});
+		return {
+			videoItem,
+		};
+	},
 };
 </script>
 

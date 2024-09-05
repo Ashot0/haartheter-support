@@ -49,6 +49,7 @@ onMounted(() => {
 			.flatMap((pages) => pages.children)
 			.find((item) => item.name === queryData);
 		homeInnerObject.value = page;
+		localStorage.setItem('homeInnerObject', JSON.stringify(page));
 	} else {
 		if (data) {
 			try {

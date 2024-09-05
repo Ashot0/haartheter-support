@@ -1,131 +1,102 @@
-@media (min-width: 768px) {
-	.block-small {
-		cursor: pointer;
-		width: 304px;
-		height: 360px;
-		background: #f5f5f5;
-		padding: 10px 10px 25px 10px;
-		&__image {
-			object-fit: cover;
+.block-small {
+	cursor: pointer;
+	background: #f5f5f5;
+	position: relative;
+	transition: all 1s;
+
+	&__image {
+		object-fit: cover;
+		@media (min-width: 768px) {
 			width: 284px;
 			height: 169px;
 		}
-
-		&__wrapper {
-			padding-top: 25px;
-			position: relative;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-		}
-
-		&__name {
-			color: #000;
-			font-family: "Prata";
-			font-size: 25px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: normal;
-		}
-		&__info {
-			margin-top: 7px;
-			display: flex;
-			gap: 15px;
-			color: #000;
-			text-align: center;
-			font-family: "Poppins";
-			font-size: 13px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: normal;
-			text-transform: uppercase;
-		}
-		&__btn {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 12px;
-			background-color: inherit;
-			margin-top: 46px;
-			color: var(--Black, #000);
-			text-align: center;
-			font-family: "Poppins";
-			font-size: 16px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: normal;
-			text-transform: uppercase;
-			object-fit: cover;
-		}
-		&:hover {
-			opacity: 0.8;
-		}
-		transition: all 1s;
-	}
-}
-
-@media (max-width: 768px) {
-	.block-small {
-		cursor: pointer;
-		width: 170px;
-		height: 242px;
-		background: #f5f5f5;
-		padding: 7px 6px 17px 6px;
-		&__image {
-			object-fit: cover;
+		@media (max-width: 768px) {
 			width: 158px;
 			height: 100px;
 		}
+	}
 
-		&__wrapper {
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: relative;
+		@media (min-width: 768px) {
+			padding-top: 25px;
+		}
+		@media (max-width: 768px) {
 			padding-top: 18px;
-			position: relative;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
 		}
+	}
 
-		&__name {
-			color: #000;
-			font-family: "Prata";
+	&__name {
+		color: #000;
+		font-family: "Prata";
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		@media (min-width: 768px) {
+			font-size: 25px;
+		}
+		@media (max-width: 768px) {
 			font-size: 18px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: normal;
 		}
-		&__info {
+	}
+
+	&__info {
+		color: #000;
+		text-align: center;
+		font-family: "Poppins";
+		font-size: 13px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-transform: uppercase;
+		display: flex;
+		gap: 15px;
+		@media (min-width: 768px) {
+			margin-top: 7px;
+		}
+		@media (max-width: 768px) {
 			margin-top: 12px;
-			display: flex;
-			gap: 15px;
-			color: #000;
-			text-align: center;
-			font-family: "Poppins";
-			font-size: 13px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: normal;
-			text-transform: uppercase;
 		}
-		&__btn {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 12px;
-			background-color: inherit;
+	}
+
+	&__btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		background-color: inherit;
+		color: var(--Black, #000);
+		text-align: center;
+		font-family: "Poppins";
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-transform: uppercase;
+		@media (min-width: 768px) {
+			margin-top: 46px;
+		}
+		@media (max-width: 768px) {
 			margin-top: 24px;
-			color: var(--Black, #000);
-			text-align: center;
-			font-family: "Poppins";
-			font-size: 16px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: normal;
-			text-transform: uppercase;
-			object-fit: cover;
 		}
-		&:hover {
-			opacity: 0.8;
-		}
-		transition: all 1s;
+	}
+
+	@media (min-width: 768px) {
+		width: 304px;
+		height: 360px;
+		padding: 10px 10px 25px 10px;
+	}
+
+	@media (max-width: 768px) {
+		width: 170px;
+		height: 242px;
+		padding: 7px 6px 17px 6px;
+	}
+
+	&:hover {
+		opacity: 0.8;
 	}
 }

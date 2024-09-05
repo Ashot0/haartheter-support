@@ -11,15 +11,21 @@
 				<div class="popup-assist__nums">
 					<div>
 						<p class="popup-assist__name">Assistant</p>
-						<p class="popup-assist__num">+38073852390</p>
+						<a href="tel:+38073852390" class="popup-assist__num"
+							>+38073852390</a
+						>
 					</div>
 					<div>
 						<p class="popup-assist__name">Manager</p>
-						<p class="popup-assist__num">+38073852390</p>
+						<a href="tel:+38073852390" class="popup-assist__num"
+							>+38073852390</a
+						>
 					</div>
 					<div>
 						<p class="popup-assist__name">Call Center</p>
-						<p class="popup-assist__num">+38073852390</p>
+						<a href="tel:+38073852390" class="popup-assist__num"
+							>+38073852390</a
+						>
 					</div>
 				</div>
 			</div>
