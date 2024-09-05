@@ -11,7 +11,7 @@
 				class="articles-video-page__articles"
 				v-if="homeInnerObject.articles?.length != 0"
 			>
-				<BlockHeader :title="'Article'" />
+				<BlockHeader class="articles-video-page__header" :title="'Article'" />
 				<div v-for="article in homeInnerObject.articles">
 					<ArticlesBlock :article="article" />
 				</div>
@@ -20,7 +20,7 @@
 				class="articles-video-page__video"
 				v-if="homeInnerObject.videos?.length != 0"
 			>
-				<BlockHeader :title="'Video'" />
+				<BlockHeader class="articles-video-page__header" :title="'Video'" />
 				<div v-for="video in homeInnerObject.videos">
 					<VideoBlock :video="video" />
 				</div>
@@ -66,6 +66,10 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .articles-video-page {
+	&__header {
+		position: absolute;
+		top: -50px;
+	}
 	&__wrapper {
 		width: 100%;
 		display: flex;

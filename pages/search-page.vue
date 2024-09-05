@@ -5,13 +5,13 @@
 			class="search-page__wrapper"
 		>
 			<div class="search-page__articles" v-if="articlesSearch.length">
-				<BlockHeader :title="'Article'" />
+				<BlockHeader class="search-page__header" :title="'Article'" />
 				<div v-for="article in articlesSearch" :key="article.id">
 					<RelatedTopicsBlock :item="article" />
 				</div>
 			</div>
 			<div class="search-page__video" v-if="videosSearch.length">
-				<BlockHeader :title="'Video'" />
+				<BlockHeader class="search-page__header" :title="'Video'" />
 				<div v-for="video in videosSearch" :key="video.id">
 					<RelatedTopicsBlock :item="video" />
 				</div>
@@ -91,6 +91,10 @@ export default {
 
 <style lang="scss" scoped>
 .search-page {
+	&__header {
+		position: absolute;
+		top: -50px;
+	}
 	&__wrapper {
 		width: 100%;
 		display: flex;

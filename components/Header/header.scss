@@ -1,15 +1,12 @@
 .header {
 	height: 208px;
 	border-bottom: 1px solid var(--Black-300, #cbcbcb);
-	margin: 0 160px;
-	@media (max-width: 1068px) {
-		padding: 18px 0 30px 0;
-		margin: 0 20px 20px 20px;
-	}
 	@media (min-width: 1068px) {
 		padding: 34px 0 41px 0;
 	}
-
+	@media (max-width: 1068px) {
+		padding: 18px 0 30px 0;
+	}
 	&__top {
 		display: flex;
 		justify-content: space-between;

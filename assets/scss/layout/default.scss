@@ -4,6 +4,15 @@
 	max-width: 100vw;
 	overflow: hidden;
 	min-height: 100vh;
+
+	&__header {
+		@media (min-width: 1068px) {
+			margin: 0 160px;
+		}
+		@media (max-width: 1068px) {
+			margin: 0 20px 20px 20px;
+		}
+	}
 	@media (min-width: 1068px) {
 		display: flex;
 		flex-direction: column;
