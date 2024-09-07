@@ -14,25 +14,23 @@ const router = useRouter();
 const route = useRoute();
 onMounted(() => {
 	const data = localStorage.getItem('ArticleObject');
-	if (data) {
-		try {
-			ArticleObject.value = JSON.parse(data);
-		} catch (e) {
-			console.error('Ошибка при парсинге данных', e);
-			router.push(`/`);
-		}
-	} else if (route.query.article) {
+	if (route.query.article) {
 		const queryData = route.query.article;
 		const page = pages[0].children
 			.flatMap((pages) => pages.children)
 			.flatMap((items) => items.articles)
-			.find((item) => item.name === queryData);
-		ArticleObject.value = page;
-		localStorage.setItem('ArticleObject', JSON.stringify(page));
+			.find((item) => item.nameSmall === queryData);
 		if (page) {
 			ArticleObject.value = page;
 			localStorage.setItem('ArticleObject', JSON.stringify(page));
 		} else {
+			router.push(`/`);
+		}
+	} else if (data) {
+		try {
+			ArticleObject.value = JSON.parse(data);
+		} catch (e) {
+			console.error('Ошибка при парсинге данных', e);
 			router.push(`/`);
 		}
 	} else {

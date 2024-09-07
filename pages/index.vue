@@ -25,7 +25,7 @@ import { pages } from './pages.ts';
 	justify-content: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1068px) {
 	.home-page {
 		:nth-child(1) {
 			order: 1;

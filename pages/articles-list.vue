@@ -43,20 +43,20 @@ const router = useRouter();
 const route = useRoute();
 onMounted(() => {
 	const data = localStorage.getItem('homeInnerObject');
-	if (route.query.list) {
-		const queryData = route.query?.list;
-		const page = pages[0].children
-			.flatMap((pages) => pages.children)
-			.find((item) => item.name === queryData);
-		homeInnerObject.value = page;
-		localStorage.setItem('homeInnerObject', JSON.stringify(page));
+	if (data) {
+		try {
+			homeInnerObject.value = JSON.parse(data);
+		} catch (e) {
+			console.error('Ошибка при парсинге данных', e);
+		}
 	} else {
-		if (data) {
-			try {
-				homeInnerObject.value = JSON.parse(data);
-			} catch (e) {
-				console.error('Ошибка при парсинге данных', e);
-			}
+		if (route.query.list) {
+			const queryData = route.query?.list;
+			const page = pages[0].children
+				.flatMap((pages) => pages.children)
+				.find((item) => item.nameSmall === queryData);
+			homeInnerObject.value = page;
+			localStorage.setItem('homeInnerObject', JSON.stringify(page));
 		} else {
 			router.push(`/`);
 		}

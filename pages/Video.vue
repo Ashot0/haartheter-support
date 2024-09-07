@@ -19,10 +19,7 @@ onMounted(() => {
 		const page = pages[0].children
 			.flatMap((pages) => pages.children)
 			.flatMap((items) => items.videos)
-			.find((item) => item.name === queryData);
-		VideoObject.value = page;
-		localStorage.setItem('VideoObject', JSON.stringify(page));
-
+			.find((item) => item.nameSmall === queryData);
 		if (page) {
 			VideoObject.value = page;
 			localStorage.setItem('VideoObject', JSON.stringify(page));

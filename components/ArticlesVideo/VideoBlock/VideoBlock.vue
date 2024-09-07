@@ -5,7 +5,11 @@
 		<p class="video-block__des">{{ video.des }}</p>
 		<div class="video-block__info">
 			<p class="video-block__date">{{ video.date }}</p>
-			<button @click="goToPage(video)" class="video-block__btn" type="button">
+			<button
+				@click.prevent="goToPage(video)"
+				class="video-block__btn"
+				type="button"
+			>
 				Watch
 				<img src="@/assets/images/icons/blackArrow.png" alt="Video block" />
 			</button>
@@ -22,11 +26,15 @@ export default {
 	setup() {
 		const router = useRouter();
 		const goToPage = (page) => {
-			localStorage.setItem('VideoObject', JSON.stringify(page));
-			router.push({
-				name: `${page.page}`,
-				query: { video: `${page.name}` },
-			});
+			if (page.page) {
+				localStorage.setItem('VideoObject', JSON.stringify(page));
+				router.push({
+					path: '/video',
+					query: { video: page.nameSmall },
+				});
+			} else {
+				console.error("Missing 'page' property in video object");
+			}
 		};
 		return {
 			goToPage,

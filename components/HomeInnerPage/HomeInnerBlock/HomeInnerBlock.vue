@@ -27,7 +27,7 @@ export default {
 			localStorage.setItem('homeInnerObject', JSON.stringify(page));
 			router.push({
 				name: `${page.page}`,
-				query: { list: `${page.name}` },
+				query: { list: `${page.nameSmall}` },
 			});
 		};
 		return { goToPage };

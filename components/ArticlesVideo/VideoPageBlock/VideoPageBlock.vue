@@ -49,7 +49,7 @@ export default {
 	props: {
 		video: {
 			type: [Object, String],
-			default: () => ({}),
+			required: true,
 		},
 	},
 	setup(props) {

@@ -22,12 +22,20 @@ export default {
 	props: { article: Object },
 	setup() {
 		const router = useRouter();
-		const goToPage = (page) => {
-			localStorage.setItem('ArticleObject', JSON.stringify(page));
-			router.push({
-				name: `${page.page}`,
-				query: { article: `${page.name}` },
-			});
+		const goToPage = (article) => {
+			try {
+				if (article.name) {
+					localStorage.setItem('ArticleObject', JSON.stringify(article));
+					router.push({
+						path: '/article',
+						query: { article: article.nameSmall },
+					});
+				} else {
+					console.error('Article name is missing');
+				}
+			} catch (error) {
+				console.error('Error during navigation:', error);
+			}
 		};
 		return {
 			goToPage,

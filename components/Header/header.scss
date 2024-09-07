@@ -1,6 +1,6 @@
 .header {
-	height: 208px;
 	border-bottom: 1px solid var(--Black-300, #cbcbcb);
+	height: 218px;
 	@media (min-width: 1068px) {
 		padding: 34px 0 41px 0;
 	}
@@ -91,6 +91,8 @@
 	}
 
 	&__search {
+		min-height: 45px;
+		position: relative;
 		display: flex;
 		justify-content: space-between;
 		box-sizing: border-box;
@@ -105,12 +107,14 @@
 		}
 		@media (max-width: 1068px) {
 			width: 100%;
+			max-width: 100%;
 		}
 	}
 
 	&__search-input {
+		max-width: 100%;
 		flex: 1;
-		padding-left: 32px;
+		padding-left: 12px;
 		color: #000;
 		text-align: left;
 		font-family: "Poppins";
@@ -124,9 +128,15 @@
 				background-color: #ebebeb;
 			}
 		}
+		@media (min-width: 320px) {
+			padding-left: 32px;
+		}
 	}
 
 	&__search-btn {
+		max-height: 100%;
+		position: absolute;
+		right: 0;
 		color: #fff;
 		text-align: center;
 		font-family: "Poppins";

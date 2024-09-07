@@ -69,6 +69,17 @@ export default {
 			}
 		};
 
+		function capitalizeFirstLetter(string) {
+			if (typeof string === 'string' && string.length > 0) {
+				const formattedString = string.replace(/-/g, ' ');
+				return (
+					formattedString.charAt(0).toUpperCase() +
+					formattedString.slice(1).toLowerCase()
+				);
+			}
+			return '';
+		}
+
 		const loadLocalStorageData = (key, refObj) => {
 			const data = localStorage.getItem(key);
 			if (data) {
@@ -105,45 +116,80 @@ export default {
 		const isHome = computed(
 			() => route.value.name === 'Home' || route.value.name === 'index'
 		);
+
 		const breadcrumbLinks = computed(() => {
 			const links = [];
 			if (
-				['home-inner', 'articles-list', 'article', 'video'].includes(
-					route.value.name
-				)
+				[
+					'home-inner',
+					'articles-list',
+					'article',
+					'video',
+					'Article',
+					'Video',
+				].includes(route.value.name)
 			) {
-				links.push({ to: '/home-inner', name: pageObject.value.name });
-			} else if (routee.query.page) {
-				links.push({ to: '/home-inner', name: routee.query.page });
-			}
-
-			if (['articles-list', 'article', 'video'].includes(route.value.name)) {
-				if (routee.query.list) {
-					links.push({ to: '/articles-list', name: routee.query.list });
+				if (routee.query.page) {
+					links.push({
+						to: {
+							path: '/home-inner',
+							query: { page: routee.query.page },
+						},
+						name: capitalizeFirstLetter(routee.query.page),
+					});
 				} else {
 					links.push({
-						to: '/articles-list',
-						name: homeInnerObject.value.name,
+						to: '/home-inner',
+						name: capitalizeFirstLetter(pageObject.value.name),
 					});
 				}
 			}
-
-			if (route.value.name === 'article') {
-				if (!routee.query.article) {
-					links.push({ to: '/article', name: articleObject.value.name });
+			if (
+				['articles-list', 'article', 'video', 'Article', 'Video'].includes(
+					route.value.name
+				)
+			) {
+				if (routee.query.list) {
+					links.push({
+						to: {
+							path: '/articles-list',
+							query: { list: routee.query.list },
+						},
+						name: capitalizeFirstLetter(routee.query.list),
+					});
 				} else {
-					links.push({ to: '/article', name: routee.query.article });
+					links.push({
+						to: '/articles-list',
+						name: capitalizeFirstLetter(homeInnerObject.value.name),
+					});
 				}
 			}
-
-			if (route.value.name === 'video') {
-				if (!routee.query.video) {
-					links.push({ to: '/video', name: videoObject.value.name });
+			if (route.value.name === 'Article' || route.value.name === 'article') {
+				if (routee.query.article) {
+					links.push({
+						to: { path: '/article', query: { article: routee.query.article } },
+						name: capitalizeFirstLetter(routee.query.article),
+					});
 				} else {
-					links.push({ to: '/video', name: routee.query.video });
+					links.push({
+						to: '/article',
+						name: capitalizeFirstLetter(articleObject.value.name),
+					});
 				}
 			}
-
+			if (route.value.name === 'Video' || route.value.name === 'video') {
+				if (routee.query.video) {
+					links.push({
+						to: { path: '/video', query: { video: routee.query.video } },
+						name: capitalizeFirstLetter(routee.query.video),
+					});
+				} else {
+					links.push({
+						to: '/video',
+						name: capitalizeFirstLetter(videoObject.value.name),
+					});
+				}
+			}
 			return links;
 		});
 
@@ -153,13 +199,32 @@ export default {
 				case 'index':
 					return 'Welcome to Support';
 				case 'home-inner':
-					return routee.query.page || pageObject.value.name;
+					return (
+						capitalizeFirstLetter(routee.query.page) || pageObject.value.name
+					);
 				case 'articles-list':
-					return routee.query.list || homeInnerObject.value.name;
+					return (
+						capitalizeFirstLetter(routee.query.list) ||
+						homeInnerObject.value.name
+					);
 				case 'article':
-					return routee.query.article || articleObject.value.name;
+					return (
+						capitalizeFirstLetter(routee.query.article) ||
+						articleObject.value.name
+					);
+				case 'Article':
+					return (
+						capitalizeFirstLetter(routee.query.article) ||
+						articleObject.value.name
+					);
 				case 'video':
-					return routee.query.video || videoObject.value.name;
+					return (
+						capitalizeFirstLetter(routee.query.video) || videoObject.value.name
+					);
+				case 'Video':
+					return (
+						capitalizeFirstLetter(routee.query.video) || videoObject.value.name
+					);
 				case 'search-page':
 					return 'Search';
 				default:

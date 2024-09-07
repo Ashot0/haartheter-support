@@ -41,11 +41,13 @@ export default {
 				localStorage.setItem('ArticleObject', JSON.stringify(props.item));
 				router.push({
 					name: `${props.item.page}`,
+					query: { article: props.item.nameSmall },
 				});
 			} else {
 				localStorage.setItem('VideoObject', JSON.stringify(props.item));
 				router.push({
 					name: `${props.item.page}`,
+					query: { video: props.item.nameSmall },
 				});
 			}
 		};

@@ -29,6 +29,7 @@ import { pages } from './pages';
 const pageObject = ref('');
 const router = useRouter();
 const route = useRoute();
+
 onMounted(() => {
 	const data = localStorage.getItem('pageObject');
 	if (route.query.page) {

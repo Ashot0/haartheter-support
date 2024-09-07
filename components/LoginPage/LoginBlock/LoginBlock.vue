@@ -53,7 +53,7 @@ const onSubmit = async () => {
 		console.log(password.value);
 		console.log(password.value);
 		console.log(rememberMe.value);
-		// await login(email.value, password.value, rememberMe.value);
+		await login(email.value, password.value, rememberMe.value);
 		error.value = '';
 		this.$router.push('/');
 	} catch (err) {

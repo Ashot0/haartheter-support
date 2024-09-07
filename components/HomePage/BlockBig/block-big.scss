@@ -1,6 +1,16 @@
 .block-big {
 	cursor: pointer;
 	position: relative;
+	transition: all 1s;
+	@media (min-width: 768px) {
+		width: 628px;
+		height: 360px;
+	}
+
+	@media (max-width: 768px) {
+		width: 353px;
+		height: 202px;
+	}
 	&__image {
 		object-fit: cover;
 		width: 100%;
@@ -69,26 +79,15 @@
 	&__btn {
 		background-color: initial;
 		position: absolute;
+		align-self: end;
 		@media (min-width: 768px) {
 			right: 30.5px;
 		}
 		@media (max-width: 768px) {
 			right: 20px;
 		}
-		align-self: end;
 	}
 
-	@media (min-width: 768px) {
-		width: 628px;
-		height: 360px;
-	}
-
-	@media (max-width: 768px) {
-		width: 353px;
-		height: 202px;
-	}
-
-	transition: all 1s;
 	&:hover {
 		opacity: 0.8;
 	}
