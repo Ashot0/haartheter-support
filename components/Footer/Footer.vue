@@ -225,23 +225,23 @@ export default {
 		const route = ref(null);
 		const router = useRouter();
 		const goToPage = (page) => {
-			if ('HomeInner' == page.page) {
+			if ('home-inner' === page.page) {
 				localStorage.setItem('pageObject', JSON.stringify(page));
+				router.replace({
+					path: `/home-inner`,
+					query: { page: `${page.nameSmall}` },
+				});
 			} else {
 				localStorage.setItem('homeInnerObject', JSON.stringify(page));
+				router.replace({
+					path: `/articles-list`,
+					query: { list: `${page.nameSmall}` },
+				});
 			}
 			if (route.value.name == page.page) {
-				router
-					.push({
-						name: `${page.page}`,
-					})
-					.then(() => {
-						router.go(0);
-					});
-			} else {
-				router.push({
-					name: `${page.page}`,
-				});
+				setTimeout(() => {
+					router.go(0);
+				}, 100);
 			}
 		};
 

@@ -34,7 +34,7 @@ onMounted(() => {
 	const data = localStorage.getItem('pageObject');
 	if (route.query.page) {
 		const queryData = route.query?.page;
-		const page = pages[0].children.find((page) => page.name === queryData);
+		const page = pages[0].children.find((page) => page.nameSmall === queryData);
 		pageObject.value = page;
 	} else {
 		if (data) {
