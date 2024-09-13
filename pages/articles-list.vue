@@ -83,7 +83,6 @@ onMounted(() => {
 		flex-wrap: wrap;
 		max-width: fit-content;
 		justify-content: center;
-		width: 50%;
 		gap: 20px;
 		position: relative;
 	}
@@ -92,12 +91,11 @@ onMounted(() => {
 		flex-wrap: wrap;
 		max-width: fit-content;
 		justify-content: center;
-		width: 50%;
 		gap: 20px;
 		position: relative;
 	}
 }
-@media (max-width: 1068px) {
+@media (max-width: 1708px) {
 	.articles-video-page {
 		&__wrapper {
 			flex-wrap: wrap;

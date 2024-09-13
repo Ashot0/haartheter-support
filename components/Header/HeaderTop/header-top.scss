@@ -1,0 +1,28 @@
+.header-top {
+	display: flex;
+	justify-content: space-between;
+	@media (max-width: 1068px) {
+		margin-bottom: 23.42px;
+	}
+	@media (min-width: 1068px) {
+		margin-bottom: 25px;
+	}
+	&__gag {
+		width: 20px;
+		height: 20px;
+	}
+
+	&__logo {
+	}
+
+	&__logout {
+		background-color: initial;
+		width: 40px;
+		height: 40px;
+		box-sizing: border-box;
+		@media (max-width: 1068px) {
+			top: 50px;
+			position: relative;
+		}
+	}
+}

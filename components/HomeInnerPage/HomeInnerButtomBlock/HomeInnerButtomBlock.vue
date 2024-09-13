@@ -66,10 +66,10 @@ export default {
 
 		const router = useRouter();
 		const goToTrainingPage = (pages) => {
-			localStorage.setItem('pageObject', JSON.stringify(pages[0].children[5]));
 			router
 				.push({
 					name: 'home-inner',
+					query: { page: 'training' },
 				})
 				.then(() => {
 					router.go(0);

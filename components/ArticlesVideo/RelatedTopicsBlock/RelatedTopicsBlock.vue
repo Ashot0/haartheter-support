@@ -26,7 +26,8 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+import { ref, watch, onMounted } from 'vue';
 export default {
 	props: {
 		item: {
@@ -35,20 +36,31 @@ export default {
 		},
 	},
 	setup(props) {
+		const route = ref(null);
 		const router = useRouter();
 		const goToPage = () => {
 			if (props.item.page === 'article') {
 				localStorage.setItem('ArticleObject', JSON.stringify(props.item));
-				router.push({
+				router.replace({
 					name: `${props.item.page}`,
 					query: { article: props.item.nameSmall },
 				});
+				if (router.currentRoute.value.name === 'article') {
+					setTimeout(() => {
+						router.go(0);
+					}, 100);
+				}
 			} else {
 				localStorage.setItem('VideoObject', JSON.stringify(props.item));
-				router.push({
+				router.replace({
 					name: `${props.item.page}`,
 					query: { video: props.item.nameSmall },
 				});
+				if (router.currentRoute.value.name === 'video') {
+					setTimeout(() => {
+						router.go(0);
+					}, 100);
+				}
 			}
 		};
 		return { goToPage };

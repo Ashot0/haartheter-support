@@ -110,7 +110,6 @@ export default {
 		align-items: center;
 		flex-wrap: wrap;
 		max-width: fit-content;
-		width: 50%;
 		gap: 20px;
 		position: relative;
 	}
@@ -121,12 +120,11 @@ export default {
 		align-items: center;
 		flex-wrap: wrap;
 		max-width: fit-content;
-		width: 50%;
 		gap: 20px;
 		position: relative;
 	}
 }
-@media (max-width: 1068px) {
+@media (max-width: 1708px) {
 	.search-page {
 		&__wrapper {
 			flex-wrap: wrap;
@@ -135,6 +133,10 @@ export default {
 		&__articles,
 		&__video {
 			width: 100%;
+
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
 		}
 	}
 }

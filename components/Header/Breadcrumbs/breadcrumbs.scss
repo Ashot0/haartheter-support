@@ -1,0 +1,35 @@
+.breadcrumbs {
+	box-sizing: border-box;
+	margin-bottom: 22px;
+	height: 21px;
+	color: #000;
+	font-family: "Poppins";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 275;
+	line-height: 21px;
+	display: flex;
+	align-items: center;
+	&__link {
+		color: #000;
+		display: flex;
+		justify-content: center;
+		padding: 0 5px 10px 5px;
+		&:hover {
+			color: #a1a1a1;
+		}
+	}
+
+	&__symbol {
+		object-fit: cover;
+		@media (min-width: 1068px) {
+			max-height: 20px;
+			position: relative;
+		}
+		@media (max-width: 1068px) {
+			width: 14px;
+			min-height: 14px;
+			margin: 4px 0 0 10px;
+		}
+	}
+}

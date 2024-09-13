@@ -12,30 +12,38 @@
 					product offers via email
 				</p>
 				<div class="footer__social-media">
-					<img
-						class="footer__social-media-element"
-						src="../../assets/images/icons/facebook.png"
-						alt=""
-						srcset=""
-					/>
-					<img
-						class="footer__social-media-element"
-						src="../../assets/images/icons/instagram.png"
-						alt=""
-						srcset=""
-					/>
-					<img
-						class="footer__social-media-element"
-						src="../../assets/images/icons/twitter.png"
-						alt=""
-						srcset=""
-					/>
-					<img
-						class="footer__social-media-element"
-						src="../../assets/images/icons/email.png"
-						alt=""
-						srcset=""
-					/>
+					<a href="https://www.facebook.com/">
+						<img
+							class="footer__social-media-element"
+							src="../../assets/images/icons/facebook.png"
+							alt=""
+							srcset=""
+						/>
+					</a>
+					<a href="https://www.instagram.com/">
+						<img
+							class="footer__social-media-element"
+							src="../../assets/images/icons/instagram.png"
+							alt=""
+							srcset=""
+						/>
+					</a>
+					<a href="https://twitter.com/">
+						<img
+							class="footer__social-media-element"
+							src="../../assets/images/icons/twitter.png"
+							alt=""
+							srcset=""
+						/>
+					</a>
+					<a href="https://www.google.com/intl/en/gmail/about/">
+						<img
+							class="footer__social-media-element"
+							src="../../assets/images/icons/email.png"
+							alt=""
+							srcset=""
+						/>
+					</a>
 				</div>
 			</div>
 			<div class="footer__right">

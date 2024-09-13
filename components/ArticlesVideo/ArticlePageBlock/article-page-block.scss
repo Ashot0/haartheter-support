@@ -205,6 +205,12 @@
 		display: flex;
 		flex-direction: column;
 		gap: 20px;
+		justify-content: center;
+
+		@media (max-width: 1708px) {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
 	}
 
 	&__related-topics-title {

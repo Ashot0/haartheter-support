@@ -53,12 +53,17 @@
 				</div>
 			</div>
 		</div>
-		<div v-if="articleItem" class="article-block__related-topics-block">
-			<h4 class="article-block__related-topics-title">Related Topics</h4>
+		<div
+			v-if="relatedTopics && relatedTopics.length > 0"
+			class="article-block__related-topics-block"
+		>
+			<h4 class="article-block__related-topics-title">More topics</h4>
 			<div class="article-block__related-topics-wrapper">
-				<RelatedTopicsBlock :item="articleItem" />
-				<RelatedTopicsBlock :item="articleItem" />
-				<RelatedTopicsBlock :item="articleItem" />
+				<RelatedTopicsBlock
+					v-for="(item, index) in relatedTopics"
+					:key="index"
+					:item="item"
+				/>
 			</div>
 		</div>
 	</div>
@@ -67,6 +72,7 @@
 <script>
 import { ref, onMounted } from 'vue';
 import RelatedTopicsBlock from '@/components/ArticlesVideo/RelatedTopicsBlock/RelatedTopicsBlock';
+import { pages } from '@/pages/pages.ts';
 
 export default {
 	components: { RelatedTopicsBlock },
@@ -78,6 +84,28 @@ export default {
 	},
 	setup(props) {
 		const articleItem = ref(null);
+		const relatedTopics = ref([]);
+
+		const getRandomNumber = (max) => Math.floor(Math.random() * (max + 1));
+
+		const getRandomPage = () => {
+			const page = pages[0].children;
+			const uno = getRandomNumber(page.length - 1);
+			const children = page[uno].children;
+			const duo = getRandomNumber(children.length - 1);
+			const articles = children[duo].articles;
+
+			if (articles && articles.length > 0) {
+				const tre = getRandomNumber(articles.length - 1);
+				return articles[tre];
+			}
+			return getRandomPage();
+		};
+
+		const generateRelatedTopics = () => {
+			relatedTopics.value = [getRandomPage(), getRandomPage(), getRandomPage()];
+		};
+
 		onMounted(() => {
 			if (typeof props.article === 'string') {
 				try {
@@ -88,9 +116,11 @@ export default {
 			} else {
 				articleItem.value = props.article;
 			}
+			generateRelatedTopics();
 		});
 		return {
 			articleItem,
+			relatedTopics,
 		};
 	},
 };
