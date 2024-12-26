@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, computed, onMounted, watch } from 'vue';
+import { defineComponent, ref, computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 export default defineComponent({
@@ -46,17 +46,6 @@ export default defineComponent({
 		const articleObject = ref(loadLocalStorageData('ArticleObject'));
 		const videoObject = ref(loadLocalStorageData('VideoObject'));
 
-		watch(
-			[pageObject, homeInnerObject, articleObject, videoObject],
-			() => {
-				pageObject.value = loadLocalStorageData('pageObject');
-				homeInnerObject.value = loadLocalStorageData('homeInnerObject');
-				articleObject.value = loadLocalStorageData('ArticleObject');
-				videoObject.value = loadLocalStorageData('VideoObject');
-			},
-			{ deep: true }
-		);
-
 		const breadcrumbLinks = computed(() => {
 			const links = [];
 			const query = route.query;
@@ -71,18 +60,18 @@ export default defineComponent({
 					'Video',
 				].includes(route.name)
 			) {
-				if (!query.page) {
+				if (query.page) {
+					links.push({
+						to: { path: '/home-inner', query: { page: query.page } },
+						name: capitalizeFirstLetter(query.page),
+					});
+				} else {
 					links.push({
 						to: {
 							path: '/home-inner',
 							query: { page: pageObject.value.nameSmall },
 						},
 						name: capitalizeFirstLetter(pageObject.value.name),
-					});
-				} else {
-					links.push({
-						to: { path: '/home-inner', query: { page: query.page } },
-						name: capitalizeFirstLetter(query.page),
 					});
 				}
 			}
@@ -92,7 +81,12 @@ export default defineComponent({
 					route.name
 				)
 			) {
-				if (!query.list) {
+				if (query.list) {
+					links.push({
+						to: { path: '/articles-list', query: { list: query.list } },
+						name: capitalizeFirstLetter(query.list),
+					});
+				} else {
 					links.push({
 						to: {
 							path: '/articles-list',
@@ -100,16 +94,16 @@ export default defineComponent({
 						},
 						name: capitalizeFirstLetter(homeInnerObject.value.name),
 					});
-				} else {
-					links.push({
-						to: { path: '/articles-list', query: { list: query.list } },
-						name: capitalizeFirstLetter(query.list),
-					});
 				}
 			}
 
 			if (route.name === 'Article' || route.name === 'article') {
-				if (!query.article) {
+				if (query.article) {
+					links.push({
+						to: { path: '/article', query: { article: query.article } },
+						name: capitalizeFirstLetter(query.article),
+					});
+				} else {
 					links.push({
 						to: {
 							path: '/article',
@@ -117,27 +111,22 @@ export default defineComponent({
 						},
 						name: capitalizeFirstLetter(articleObject.value.name),
 					});
-				} else {
-					links.push({
-						to: { path: '/article', query: { article: query.article } },
-						name: capitalizeFirstLetter(query.article),
-					});
 				}
 			}
 
 			if (route.name === 'Video' || route.name === 'video') {
-				if (!query.video) {
+				if (query.video) {
+					links.push({
+						to: { path: '/video', query: { video: query.video } },
+						name: capitalizeFirstLetter(query.video),
+					});
+				} else {
 					links.push({
 						to: {
 							path: '/video',
 							query: { video: videoObject.value.nameSmall },
 						},
 						name: capitalizeFirstLetter(videoObject.value.name),
-					});
-				} else {
-					links.push({
-						to: { path: '/video', query: { video: query.video } },
-						name: capitalizeFirstLetter(query.video),
 					});
 				}
 			}

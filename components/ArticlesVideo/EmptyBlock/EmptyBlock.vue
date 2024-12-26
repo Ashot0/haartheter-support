@@ -11,7 +11,7 @@
 						: 'There is no information yet!'
 				}}
 			</div>
-			<button class="empty-block__btn" @click="goToPage(page)" type="button">
+			<button class="empty-block__btn" @click="goToPage()" type="button">
 				back
 			</button>
 		</div>
@@ -27,9 +27,7 @@ export default {
 	setup(props) {
 		const router = useRouter();
 		const goToPage = () => {
-			router.push({
-				name: `HomeInner`,
-			});
+			router.back();
 		};
 		return { goToPage };
 	},

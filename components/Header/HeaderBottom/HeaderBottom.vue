@@ -32,7 +32,7 @@ export default defineComponent({
 			switch (currentRoute.name) {
 				case 'Home':
 				case 'index':
-					return 'Welcome to Support';
+					return 'Welcome to Supportt';
 				case 'home-inner':
 					return capitalizeFirstLetter(query.page);
 				case 'articles-list':
