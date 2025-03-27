@@ -1,23 +1,15 @@
 <template>
-	<div
-		class="related-topics-block"
-		:class="
-			item.page === 'article'
-				? 'related-topics-block__article'
-				: 'related-topics-block__video'
-		"
-	>
+	<div class="related-topics-block" :class="item.page === 'article'
+		? 'related-topics-block__article'
+		: 'related-topics-block__video'
+		">
 		<div class="related-topics-block__image">
 			<img :src="item.img" alt="Topic" />
 		</div>
 		<div class="related-topics-block__wrapper">
 			<h6 class="related-topics-block__title">{{ item.name }}</h6>
 			<p class="related-topics-block__des">{{ item.des }}</p>
-			<button
-				class="related-topics-block__btn"
-				@click="goToPage()"
-				type="button"
-			>
+			<button class="related-topics-block__btn" @click="goToPage()" type="button">
 				{{ item.page === 'article' ? 'READ' : 'WATCH' }}
 				<img src="@/assets/images/icons/blackArrow.png" alt="Video" srcset="" />
 			</button>
@@ -27,7 +19,7 @@
 
 <script>
 import { useRouter } from 'vue-router';
-import { ref, watch, onMounted } from 'vue';
+import { ref } from 'vue';
 export default {
 	props: {
 		item: {
@@ -47,9 +39,10 @@ export default {
 				});
 				if (router.currentRoute.value.name === 'article') {
 					setTimeout(() => {
-						router.go(0);
+						window.scrollTo({ top: 0 });
 					}, 100);
 				}
+
 			} else {
 				localStorage.setItem('VideoObject', JSON.stringify(props.item));
 				router.replace({
@@ -58,7 +51,7 @@ export default {
 				});
 				if (router.currentRoute.value.name === 'video') {
 					setTimeout(() => {
-						router.go(0);
+						window.scrollTo({ top: 0 });
 					}, 100);
 				}
 			}
